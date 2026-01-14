@@ -4,9 +4,9 @@ import numpy as np
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 from .base_method import BaseMethod
-from graph_builder import compute_similarity_matrix, compute_pagerank_matrix
-from celf_solver import CELFSelector
-from utils.uboco_detector import UbocoDetector
+from .graph_builder import compute_similarity_matrix, compute_pagerank_matrix
+from .celf_solver import CELFSelector
+from .uboco_detector import UbocoDetector
 
 try:
     from decord import VideoReader, cpu

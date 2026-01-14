@@ -4,7 +4,7 @@ import os
 import json
 import torch
 from tqdm import tqdm
-from my_datasets import DATASET_REGISTRY
+from my_dataset import DATASET_REGISTRY
 from code import METHOD_REGISTRY
 
 def parse_args():
