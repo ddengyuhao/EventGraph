@@ -1,14 +1,11 @@
-from .videomme import VideoMME
-from .longvideobench import LongVideoBench
+from .videomme import VideoMMEDataset
+from .longvideobench import LongVideoBenchDataset
 from .cinepile import CinePileDataset
-from .egoschema import EgoSchemaDataset
-# [新增]
-from .mlvu import MLVUDataset
 
 DATASET_REGISTRY = {
-    "VideoMME": VideoMME,
-    "LongVideoBench": LongVideoBench,
+    "VideoMME": VideoMMEDataset,
+    "LongVideoBench": LongVideoBenchDataset,
     "CinePile": CinePileDataset,
-    "EgoSchema": EgoSchemaDataset,
-    "MLVU": MLVUDataset, 
+    # "EgoSchema": EgoSchemaDataset,
+    # "MLVU": MLVUDataset, 
 }
