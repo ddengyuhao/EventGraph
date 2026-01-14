@@ -27,13 +27,8 @@ def parse_args():
     
     # 核心选择参数
     parser.add_argument("--dataset", type=str, required=True, choices=["VideoMME", "LongVideoBench", "MLVU", "CinePile"])
-    parser.add_argument("--method", type=str, required=True, choices=["FastV", "ToMe", "DyCoke", "MovieChat", "SceneGraph-Cap", "Q-Frame", "Q-Frame-Clean", "EventGraph-LMM"])
+    parser.add_argument("--method", type=str, required=True, choices=["EventGraph-LMM"])
     parser.add_argument("--backbone", type=str, default="Video-LLaVA-7B", choices=["Video-LLaVA-7B", "LLaVA-NeXT-Video-34B"])
-    
-    # --- [新增] 调试模式参数 ---
-    parser.add_argument("--duration_mode", type=str, default="ideal", 
-                        choices=["all", "ideal", "long", "short"], 
-                        help="ideal: 10-30min (用于验证 Ours 优势), all: 跑顶会全量数据")
     
     # --- [新增] 并行分片参数 (用于多卡并行) ---
     parser.add_argument("--num_chunks", type=int, default=1, help="把数据集分成几份")
@@ -41,12 +36,9 @@ def parse_args():
     # ---------------------------------------
     
     # 路径与超参
-    parser.add_argument("--data_root", type=str, default="/root/hhq/dataset")
+    parser.add_argument("--data_root", type=str, default="/root/ICML2026/dataset")
     parser.add_argument("--token_budget", type=int, default=2048)
     
-    # Q-Frame等方法的温度参数
-    parser.add_argument("--temperature", type=float, default=1.0,
-                        help="Temperature for Gumbel-Max sampling in Q-Frame (default: 1.0)")
     
     # ⭐ 新增：限制样本数（用于快速测试）
     parser.add_argument("--max_samples", type=int, default=None,
