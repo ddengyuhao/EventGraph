@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Configuration
-DATASET="CinePile"
+DATASET="VRBench"
 METHOD="EventGraph-LMM"
-BACKBONE="Video-LLaVA-7B" # Or "LLaVA-NeXT-Video-34B"
+BACKBONE="Qwen2.5-VL-7B" # Or "LLaVA-NeXT-Video-34B"
 MAX_SAMPLES=100 # Change to 100 for a quick subset test, or remove for full run
-OUTPUT_DIR="./results_cinepile"
+OUTPUT_DIR="./results_$DATASET"
 
 # Array to store PIDs
 pids=()
 
-echo "🚀 Starting 4-GPU Inference on CinePile..."
+echo "🚀 Starting 4-GPU Inference on $DATASET..."
 
 # Loop for 4 GPUs (0, 1, 2, 3)
 for GPU_ID in 0 1 2 3

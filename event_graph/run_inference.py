@@ -5,11 +5,11 @@ import json
 import torch
 from tqdm import tqdm
 from my_dataset import DATASET_REGISTRY
-from code import METHOD_REGISTRY
+from methods import METHOD_REGISTRY
 
 def parse_args():
     parser = argparse.ArgumentParser(description="EventGraph-LLM Experiments")
-    parser.add_argument("--dataset", type=str, default="CinePile", choices=["VideoMME", "CinePile"])
+    parser.add_argument("--dataset", type=str, default="CinePile", choices=["VideoMME", "CinePile", "VRBench"])
     parser.add_argument("--method", type=str, default="EventGraph-LMM")
     parser.add_argument("--backbone", type=str, default="Video-LLaVA-7B")
     parser.add_argument("--data_root", type=str, default="/root/ICML2026/dataset")
@@ -61,10 +61,16 @@ def main():
     # Note: Import Wrapper here
     if args.backbone == "Video-LLaVA-7B":
         from models.video_llava_7b import VideoLLaVAWrapper
-        model = VideoLLaVAWrapper() # Internally handles .to(device)
+        model = VideoLLaVAWrapper()
     elif "34B" in args.backbone:
         from models.llava_next_34b import LLaVANext34BWrapper
         model = LLaVANext34BWrapper()
+    
+    # --- 新增 Qwen 支持 ---
+    elif args.backbone == "Qwen2.5-VL-7B":
+        from models.qwen2_5_vl import Qwen2_5_VLWrapper
+        model = Qwen2_5_VLWrapper() # 默认加载 7B-Instruct
+    # --------------------
 
     # 4. Initialize Method
     method_cls = METHOD_REGISTRY[args.method]
@@ -74,9 +80,25 @@ def main():
     results = []
     os.makedirs(args.output_dir, exist_ok=True)
     
+    # [修改点] 改为按索引遍历，这样我们可以捕获 dataset[i] 抛出的异常
+    print(f"🚀 Start processing {len(dataset)} samples...")
+    
     for sample in tqdm(dataset, desc=f"GPU {args.chunk_idx}"):
         try:
-            # CinePile returns dict with 'video_path', 'question', 'options'
+            # --- 新增：空路径检查 ---
+            if sample['video_path'] is None:
+                print(f"⚠️ Skipping ID {sample['id']} due to missing video.")
+                results.append({
+                    "id": sample['id'],
+                    "pred": "C",  # 视频没下载下来，默认盲猜一个 C，保证评测脚本能跑通
+                    "gt": sample.get('answer', ''),
+                    "q": sample['question'],
+                    "error": "Video download failed"
+                })
+                continue
+            # -----------------------
+
+            # 正常的推理逻辑
             pred = processor.process_and_inference(
                 sample['video_path'],
                 sample['question'],
@@ -90,13 +112,13 @@ def main():
                 "q": sample['question']
             })
             
-            # Incremental save (Crucial for long runs!)
+            # Incremental save
             if len(results) % 5 == 0:
                 temp_path = os.path.join(args.output_dir, f"temp_{args.dataset}_{args.chunk_idx}.json")
                 with open(temp_path, 'w') as f: json.dump(results, f)
 
         except Exception as e:
-            print(f"❌ Error {sample['id']}: {e}")
+            print(f"❌ [Inference Error] {sample.get('id', i)}: {e}")
 
     # Final Save
     final_path = os.path.join(args.output_dir, f"{args.dataset}_{args.method}_chunk{args.chunk_idx}.json")

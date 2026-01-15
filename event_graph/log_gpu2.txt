@@ -1,18 +1,6 @@
-Traceback (most recent call last):
-  File "/root/icml2026/event_graph/run_inference.py", line 8, in <module>
-    from code import METHOD_REGISTRY
-  File "/root/icml2026/event_graph/code/__init__.py", line 4, in <module>
-    from .eventgraph import EventGraphLMM
-  File "/root/icml2026/event_graph/code/eventgraph.py", line 5, in <module>
-    from transformers import CLIPProcessor, CLIPModel
-  File "/usr/local/lib/python3.10/dist-packages/transformers/__init__.py", line 27, in <module>
-    from . import dependency_versions_check
-  File "/usr/local/lib/python3.10/dist-packages/transformers/dependency_versions_check.py", line 16, in <module>
-    from .utils.versions import require_version, require_version_core
-  File "/usr/local/lib/python3.10/dist-packages/transformers/utils/__init__.py", line 24, in <module>
-    from .auto_docstring import (
-  File "/usr/local/lib/python3.10/dist-packages/transformers/utils/auto_docstring.py", line 30, in <module>
-    from .generic import ModelOutput
-  File "/usr/local/lib/python3.10/dist-packages/transformers/utils/generic.py", line 465, in <module>
-    _torch_pytree.register_pytree_node(
-AttributeError: module 'torch.utils._pytree' has no attribute 'register_pytree_node'. Did you mean: '_register_pytree_node'?
+🚀 Process 2/4 starting on cuda
+📂 Loading Dataset: VRBench
+Found 0 videos in /root/ICML2026/dataset
+⚠️ DEBUG MODE: Truncated to first 100 samples.
+🔄 Chunk 2: Processing samples 0 to 0 (Count: 0)
+✅ Chunk is empty, exiting.
