@@ -1,0 +1,177 @@
+[
+    {
+        "id": "QRqoPP5A9-M_qa2",
+        "pred": "C",
+        "gt": "D",
+        "q": "Does the little girl in the video like men in sunglasses?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa3",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many times does the video show eating?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "What happens next when the man in sunglasses in the video stands outside the court watching a group of students play?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "If the man in white in the video hadn't gambled, how would his life have changed?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many times does the man with the beard appear in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the main story of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa1",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why was Vietnam able to gain independence?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why Vu Won Kha was able to go to school as a young man, despite the difficult conditions.",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa3",
+        "pred": "C",
+        "gt": "D",
+        "q": "How much did Vu Won Kha do to emancipate his mind in order to win the war of liberation in Vietnam",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why did the central government decide to send Wu Yuanjia to Kunming, China?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa5",
+        "pred": "C",
+        "gt": "C",
+        "q": "What happens when the revolutionary aspirants of the Communist Party of Vietnam, who have gone through many difficulties, come to China to work together with the Chinese Communist Party?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What would be the effect of assuming that Moo Won A's talents are buried?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa7",
+        "pred": "C",
+        "gt": "C",
+        "q": "What was Wu Yuanjia like?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the subject matter of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many creatures appear in the short movie?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa2",
+        "pred": "C",
+        "gt": "C",
+        "q": "What does the forest in the video have in common with the kitchen scene?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa3",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many types of activities are depicted in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why does the anchor in the video have to wear special socks instead of shoes to go into the rainforest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "What happens if the hypothetical anchor chooses to wear boots into the rainforest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is this short video about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "JOHN. What impact will the discovery of Lowe's body have on the case?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "What are the implications if the body is not found?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa3",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why does the Washington Insider murder case seem so suspenseful?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "John. What are the similarities between the Lowe and Jennifer cases.",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "Suppose there is a killer in the case of John Lorre and Jennifer. Lorre and Jennifer's case there is a murderer, would that murderer turn himself in?",
+        "error": "Video download failed"
+    }
+]

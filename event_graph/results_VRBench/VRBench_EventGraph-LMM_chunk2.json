@@ -1,0 +1,177 @@
+[
+    {
+        "id": "gUO3k4HHg9g_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the video about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa1",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why does the video show confusion and melancholy in the scene of the woman gazing out the window?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "What consequences might the man in the black jacket in the video face if he fails to get somewhere in time?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why does the policewoman in the video advise the other woman to 'give good advice at the store'?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why do the people in uniform look very nervous in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why does a man in a military uniform look so happy and he is so pleasant at the birthday party in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "Assuming the woman in the video doesn't notice something outside the window, what might happen?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times does the woman in red appear in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times did Hong Kim and Hoa Hiep meet in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa2",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the image of Hoa Hiep in the short film?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many things did the mother and daughter in the short movie do after they got their ten billion dollars?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa4",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why did Hong Kim agree to get married?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "Suppose the heroine had not agreed to go and get married, what would have happened?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa6",
+        "pred": "C",
+        "gt": "D",
+        "q": "What is the image of the woman in black in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa7",
+        "pred": "C",
+        "gt": "A",
+        "q": "What is this short movie about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many major scenes does the hero go to in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why was the hero beaten on the side of the road?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "The hero and his friend are assaulted by a loan shark what happens next?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Assuming the hero hadn't borrowed the money from the loan sharks, would he still have been beaten?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa5",
+        "pred": "C",
+        "gt": "C",
+        "q": "How many times does the video show drinking in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa6",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many times are there smoking shots in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa7",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why did the female teacher end up going to the party?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why does the man in the suit speak to the man in white in the video and he can't hear him clearly?",
+        "error": "Video download failed"
+    }
+]

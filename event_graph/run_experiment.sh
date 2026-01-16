@@ -6,6 +6,8 @@ METHOD="EventGraph-LMM"
 BACKBONE="Qwen2.5-VL-7B" # Or "LLaVA-NeXT-Video-34B"
 MAX_SAMPLES=100 # Change to 100 for a quick subset test, or remove for full run
 OUTPUT_DIR="./results_$DATASET"
+Token_Budget=8192
+
 
 # Array to store PIDs
 pids=()
@@ -30,6 +32,7 @@ do
         --chunk_idx $GPU_ID \
         --max_samples $MAX_SAMPLES \
         --output_dir $OUTPUT_DIR \
+        --token_budget $Token_Budget \
         > $LOG_FILE 2>&1 &
         
     # Store PID

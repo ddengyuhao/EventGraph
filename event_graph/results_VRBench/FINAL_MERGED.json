@@ -1,0 +1,702 @@
+[
+    {
+        "id": "QRqoPP5A9-M_qa2",
+        "pred": "C",
+        "gt": "D",
+        "q": "Does the little girl in the video like men in sunglasses?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa3",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many times does the video show eating?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "What happens next when the man in sunglasses in the video stands outside the court watching a group of students play?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "If the man in white in the video hadn't gambled, how would his life have changed?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many times does the man with the beard appear in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the main story of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa1",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why was Vietnam able to gain independence?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why Vu Won Kha was able to go to school as a young man, despite the difficult conditions.",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa3",
+        "pred": "C",
+        "gt": "D",
+        "q": "How much did Vu Won Kha do to emancipate his mind in order to win the war of liberation in Vietnam",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why did the central government decide to send Wu Yuanjia to Kunming, China?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa5",
+        "pred": "C",
+        "gt": "C",
+        "q": "What happens when the revolutionary aspirants of the Communist Party of Vietnam, who have gone through many difficulties, come to China to work together with the Chinese Communist Party?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What would be the effect of assuming that Moo Won A's talents are buried?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa7",
+        "pred": "C",
+        "gt": "C",
+        "q": "What was Wu Yuanjia like?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "Q5ZWBpcN56g_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the subject matter of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many creatures appear in the short movie?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa2",
+        "pred": "C",
+        "gt": "C",
+        "q": "What does the forest in the video have in common with the kitchen scene?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa3",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many types of activities are depicted in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why does the anchor in the video have to wear special socks instead of shoes to go into the rainforest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "What happens if the hypothetical anchor chooses to wear boots into the rainforest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "d8vM_9sWypg_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is this short video about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "JOHN. What impact will the discovery of Lowe's body have on the case?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "What are the implications if the body is not found?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa3",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why does the Washington Insider murder case seem so suspenseful?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "John. What are the similarities between the Lowe and Jennifer cases.",
+        "error": "Video download failed"
+    },
+    {
+        "id": "isOv3LKWVvw_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "Suppose there is a killer in the case of John Lorre and Jennifer. Lorre and Jennifer's case there is a murderer, would that murderer turn himself in?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why was the group filled with curiosity and a desire to explore the ruins of the temple?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "What does the man in the blue shirt in the video have in common from scene to scene?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa3",
+        "pred": "C",
+        "gt": "D",
+        "q": "What is the relationship between the characters in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why did they develop a relationship as a couple at the end of the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many categories of transportation are featured in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa6",
+        "pred": "C",
+        "gt": "C",
+        "q": "How many times in the video does the camera guy get a shot to hang out with his girlfriend?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "TZk_p-q8Fzo_qa7",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the main point of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why would the heroine cheat on her own husband?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times does the video show footage of the child in question?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many total character relationships are there in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa4",
+        "pred": "C",
+        "gt": "A",
+        "q": "What would have happened assuming the heroine hadn't cheated?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "What happens next when the heroine tells herself she has to end the cheating?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "eb5vwy4GSSs_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the main story of this video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa1",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why can't the line of people in the video leave the place",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa2",
+        "pred": "C",
+        "gt": "C",
+        "q": "The line in the video is trapped by the hood, what happens next?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa3",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why does the video repeatedly show young people being nervous and distrustful of each other",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many times has the line in the video been alone?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "How would the line be affected if food and water appeared in the hood.",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "After exploring pedestrians to roughly understand the method of communicating with 'hood-like living things', what happens next?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa7",
+        "pred": "C",
+        "gt": "A",
+        "q": "What would be triggered if the 'hood-like living thing' was accidentally angered",
+        "error": "Video download failed"
+    },
+    {
+        "id": "HfWe0J506r8_qa8",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the main story of the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa1",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many times did the hero talk to the mute?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa2",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why is the supervisor mad at the male lead?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "What might happen next to the hero as a result of having a stomach upset from the basil fried rice?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the relationship between the hero and the heroine?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "What happens next at the end of the video when the hero learns that the heroine is mute?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times does advertising appear in this clip?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many ways did the man in the video try to make money?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the image of the tattooed man in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Suppose what happens if the tattooed man in the video refuses to pay back the money?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "What's the relationship between the tattooed guy in the video and his friend?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "Suppose what happens if the tattooed man's friends don't help him?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa7",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why would a tattooed man want to open a joint venture with a friend to open a watering hole?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa8",
+        "pred": "C",
+        "gt": "A",
+        "q": "What is this short movie about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa1",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why did the embassy abandon its mission?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "What might happen to the North Korean regime if men prevented the Death Moth from succeeding?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "What does it say about the boy in the video that he was given power or a mission to speak on stage?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa4",
+        "pred": "C",
+        "gt": "B",
+        "q": "What does the video's metaphorical reference to \"Sotalen turning into a lime\" suggest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why is the international flag repeated in the picture?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many conversations did the man and the woman have in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times were private shots taken in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa8",
+        "pred": "C",
+        "gt": "B",
+        "q": "What message about legal advocacy is summarized in the \"Freedom\" book in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many people did the man (hero) succeed in murdering with vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "What are the implications if a woman senses a man's intentions?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the use of a man doing many things with the first object of his vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why did you succeed in killing the first woman?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "What are the repercussions of a man faking multiple suicide accidents?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa6",
+        "pred": "C",
+        "gt": "C",
+        "q": "What happens when a man decisively stomps the object of his vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why the man (the hero) did not succeed in killing the man (the object of his revenge).",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the video about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa1",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why does the video show confusion and melancholy in the scene of the woman gazing out the window?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "What consequences might the man in the black jacket in the video face if he fails to get somewhere in time?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why does the policewoman in the video advise the other woman to 'give good advice at the store'?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why do the people in uniform look very nervous in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why does a man in a military uniform look so happy and he is so pleasant at the birthday party in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "Assuming the woman in the video doesn't notice something outside the window, what might happen?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times does the woman in red appear in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "cn9bAjbPlg4_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times did Hong Kim and Hoa Hiep meet in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa2",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the image of Hoa Hiep in the short film?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many things did the mother and daughter in the short movie do after they got their ten billion dollars?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa4",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why did Hong Kim agree to get married?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa5",
+        "pred": "C",
+        "gt": "B",
+        "q": "Suppose the heroine had not agreed to go and get married, what would have happened?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa6",
+        "pred": "C",
+        "gt": "D",
+        "q": "What is the image of the woman in black in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "PxBRAiu8RvY_qa7",
+        "pred": "C",
+        "gt": "A",
+        "q": "What is this short movie about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many major scenes does the hero go to in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why was the hero beaten on the side of the road?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "The hero and his friend are assaulted by a loan shark what happens next?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa4",
+        "pred": "C",
+        "gt": "C",
+        "q": "Assuming the hero hadn't borrowed the money from the loan sharks, would he still have been beaten?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa5",
+        "pred": "C",
+        "gt": "C",
+        "q": "How many times does the video show drinking in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa6",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many times are there smoking shots in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa7",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why did the female teacher end up going to the party?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "E3EK82HTt88_qa8",
+        "pred": "C",
+        "gt": "C",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "QRqoPP5A9-M_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why does the man in the suit speak to the man in white in the video and he can't hear him clearly?",
+        "error": "Video download failed"
+    }
+]

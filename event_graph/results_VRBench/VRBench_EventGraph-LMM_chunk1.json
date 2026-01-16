@@ -1,0 +1,177 @@
+[
+    {
+        "id": "DusdKS58TS8_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "What happens next at the end of the video when the hero learns that the heroine is mute?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "DusdKS58TS8_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "What story does this video tell?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa1",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times does advertising appear in this clip?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "How many ways did the man in the video try to make money?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "What is the image of the tattooed man in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Suppose what happens if the tattooed man in the video refuses to pay back the money?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "What's the relationship between the tattooed guy in the video and his friend?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa6",
+        "pred": "C",
+        "gt": "A",
+        "q": "Suppose what happens if the tattooed man's friends don't help him?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa7",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why would a tattooed man want to open a joint venture with a friend to open a watering hole?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "P3UNqz4eouE_qa8",
+        "pred": "C",
+        "gt": "A",
+        "q": "What is this short movie about?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa1",
+        "pred": "C",
+        "gt": "C",
+        "q": "Why did the embassy abandon its mission?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa2",
+        "pred": "C",
+        "gt": "A",
+        "q": "What might happen to the North Korean regime if men prevented the Death Moth from succeeding?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa3",
+        "pred": "C",
+        "gt": "B",
+        "q": "What does it say about the boy in the video that he was given power or a mission to speak on stage?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa4",
+        "pred": "C",
+        "gt": "B",
+        "q": "What does the video's metaphorical reference to \"Sotalen turning into a lime\" suggest?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa5",
+        "pred": "C",
+        "gt": "A",
+        "q": "Why is the international flag repeated in the picture?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa6",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many conversations did the man and the woman have in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "How many times were private shots taken in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "jOwENkYZJ4I_qa8",
+        "pred": "C",
+        "gt": "B",
+        "q": "What message about legal advocacy is summarized in the \"Freedom\" book in the video?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa1",
+        "pred": "C",
+        "gt": "D",
+        "q": "How many people did the man (hero) succeed in murdering with vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa2",
+        "pred": "C",
+        "gt": "B",
+        "q": "What are the implications if a woman senses a man's intentions?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa3",
+        "pred": "C",
+        "gt": "C",
+        "q": "What is the use of a man doing many things with the first object of his vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa4",
+        "pred": "C",
+        "gt": "D",
+        "q": "Why did you succeed in killing the first woman?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa5",
+        "pred": "C",
+        "gt": "D",
+        "q": "What are the repercussions of a man faking multiple suicide accidents?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa6",
+        "pred": "C",
+        "gt": "C",
+        "q": "What happens when a man decisively stomps the object of his vengeance?",
+        "error": "Video download failed"
+    },
+    {
+        "id": "gUO3k4HHg9g_qa7",
+        "pred": "C",
+        "gt": "B",
+        "q": "Why the man (the hero) did not succeed in killing the man (the object of his revenge).",
+        "error": "Video download failed"
+    }
+]

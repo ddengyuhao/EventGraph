@@ -12,7 +12,7 @@ def parse_args():
     parser.add_argument("--dataset", type=str, default="CinePile", choices=["VideoMME", "CinePile", "VRBench"])
     parser.add_argument("--method", type=str, default="EventGraph-LMM")
     parser.add_argument("--backbone", type=str, default="Video-LLaVA-7B")
-    parser.add_argument("--data_root", type=str, default="/root/ICML2026/dataset")
+    parser.add_argument("--data_root", type=str, default="/root/icml2026/dataset")
     parser.add_argument("--token_budget", type=int, default=2048)
     parser.add_argument("--output_dir", type=str, default="./result")
     
