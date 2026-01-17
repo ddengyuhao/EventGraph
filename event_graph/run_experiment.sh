@@ -1,18 +1,20 @@
 #!/bin/bash
 
 # Configuration
-DATASET="VRBench"
-# DATASET="VideoMME"
+# DATASET="VRBench"
+DATASET="VideoMME"
 
 METHOD="EventGraph-LMM"
-BACKBONE="Qwen2.5-VL-7B" # Or "LLaVA-NeXT-Video-34B"
+# BACKBONE="Qwen2.5-VL-7B" # Or "LLaVA-NeXT-Video-34B"
+BACKBONE="Video-LLaVA-7B" # Or "LLaVA-NeXT-Video-34B"
+
 MAX_SAMPLES=100 # Change to 100 for a quick subset test, or remove for full run
 OUTPUT_DIR="./results_$DATASET"
 # 如果跑 Qwen2.5-VL
-Token_Budget=8192 
+# Token_Budget=8192 
 
 # 如果跑 Video-LLaVA-7B
-# Token_Budget=4096
+Token_Budget=4096
 
 # 如果跑 Video-LLaVA-34B
 # Token_Budget=6144
