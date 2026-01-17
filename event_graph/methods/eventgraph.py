@@ -304,13 +304,16 @@ class EventGraphLMM(BaseMethod):
         
         # Detect token density for budget calculation
         backbone_name = getattr(args, 'backbone', '')
-        if '34B' in backbone_name:
-            self.tokens_per_frame = 576 
-        elif 'Qwen' in backbone_name:
-            # Qwen是动态分辨率，这里给一个经验平均值
-            self.tokens_per_frame = 512 
+        if 'Qwen' in backbone_name:
+            # 策略 A: 强制 Resize 到 336x336 (推荐) -> Token 消耗稳定 ~256
+            self.tokens_per_frame = 256 
+            self.target_size = (336, 336) 
+        elif '34B' in backbone_name:
+            self.tokens_per_frame = 576
+            self.target_size = None # LLaVA-Next 内部处理
         else:
-            self.tokens_per_frame = 256 # Video-LLaVA-7B default
+            self.tokens_per_frame = 256
+            self.target_size = None
             
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
@@ -515,32 +518,74 @@ class EventGraphLMM(BaseMethod):
             
         return events
 
-    def _build_graph_cot_prompt(self, question, options, segments, adj_matrix, selected_indices):
-        event_timeline = [f"Event{i+1}" for i, _, _ in segments]
+    # def _build_graph_cot_prompt(self, question, options, segments, adj_matrix, selected_indices):
+    #     event_timeline = [f"Event{i+1}" for i, _, _ in segments]
         
-        # 格式化选项字符串
-        if isinstance(options, list):
-            # 处理可能是字典的情况
-            options_clean = []
-            for opt in options:
-                if isinstance(opt, dict):
-                    options_clean.append(str(opt))
-                else:
-                    options_clean.append(str(opt))
+    #     # 格式化选项字符串
+    #     if isinstance(options, list):
+    #         # 处理可能是字典的情况
+    #         options_clean = []
+    #         for opt in options:
+    #             if isinstance(opt, dict):
+    #                 options_clean.append(str(opt))
+    #             else:
+    #                 options_clean.append(str(opt))
             
-            # 如果是A,B,C,D格式
-            if len(options_clean) > 0 and (options_clean[0].startswith('A') or len(options_clean) <= 5):
-                 options_str = "\n".join([f"{chr(65+i)}. {opt}" for i, opt in enumerate(options_clean)])
-            else:
-                 options_str = "\n".join(options_clean)
+    #         # 如果是A,B,C,D格式
+    #         if len(options_clean) > 0 and (options_clean[0].startswith('A') or len(options_clean) <= 5):
+    #              options_str = "\n".join([f"{chr(65+i)}. {opt}" for i, opt in enumerate(options_clean)])
+    #         else:
+    #              options_str = "\n".join(options_clean)
+    #     else:
+    #         options_str = str(options)
+
+    #     prompt = (
+    #         f"Question: {question}\n"
+    #         f"Options:\n{options_str}\n"
+    #         f"Key Events Timeline: {' -> '.join(event_timeline)}\n"
+    #         f"Based on these visual events, reason step-by-step and choose the best answer."
+    #     )
+    #     return prompt
+    def _build_graph_cot_prompt(self, question, options, segments, adj_matrix, selected_indices):
+        # 1. Build a structured timeline with timestamps
+        timeline_str = ""
+        for idx, (start, end, original_idx) in enumerate(segments):
+            # Add explicit "Node" markers
+            timeline_str += f"- Node {idx+1} (Time: {start:.1f}s - {end:.1f}s): [Visual Content]\n"
+
+        # 2. Add "Graph Hints" (Optional: Tell the LLM which nodes are semantically related)
+        # We look at the adjacency matrix for selected nodes to find strong non-temporal links
+        graph_hints = []
+        for i in range(len(selected_indices)):
+            for j in range(len(selected_indices)):
+                if i == j: continue
+                # original graph indices
+                u, v = selected_indices[i], selected_indices[j]
+                # If there was a strong semantic edge in the original graph
+                if adj_matrix[u, v] > 0.05: # Threshold for hint
+                    graph_hints.append(f"Node {i+1} is semantically related to Node {j+1}.")
+        
+        hints_str = "\n".join(graph_hints[:5]) # Limit hints to avoid noise
+
+        # 3. Format Options
+        if isinstance(options, list):
+            options_clean = [str(o) for o in options]
+            options_str = "\n".join([f"{chr(65+i)}. {opt}" for i, opt in enumerate(options_clean)])
         else:
             options_str = str(options)
 
+        # 4. Structured CoT Prompt
         prompt = (
-            f"Question: {question}\n"
-            f"Options:\n{options_str}\n"
-            f"Key Events Timeline: {' -> '.join(event_timeline)}\n"
-            f"Based on these visual events, reason step-by-step and choose the best answer."
+            f"You are analyzing a long video. I have selected key events for you based on a semantic graph.\n\n"
+            f"User Query: {question}\n\n"
+            f"Selected Key Events Timeline:\n{timeline_str}\n"
+            f"Key Semantic Connections identified by the graph:\n{hints_str}\n\n"
+            f"Options:\n{options_str}\n\n"
+            f"Instructions:\n"
+            f"1. Analyze the visual content of each Node relevant to the query.\n"
+            f"2. Connect the clues: If Node X and Node Y are related, combine their information.\n"
+            f"3. Reason step-by-step to answer the query.\n"
+            f"Answer:"
         )
         return prompt
 
@@ -561,19 +606,41 @@ class EventGraphLMM(BaseMethod):
         if not sel_idx: sel_idx = [0] # Fallback
         
         # 5. 准备推理数据
-        # 确保索引不越界
         valid_sel_idx = [i for i in sel_idx if i < len(frames)]
         if not valid_sel_idx: valid_sel_idx = [0]
         
-        selected_frames = [frames[i] for i in sorted(valid_sel_idx)]
-        selected_segments = [(events[i][0], events[i][1], i) for i in sorted(valid_sel_idx)]
+        # --- IMPROVEMENT: Sort indices strictly by time ---
+        valid_sel_idx = sorted(valid_sel_idx)
+
+        # --- IMPROVEMENT: Force Resize to ensure Token Budget fits more frames ---
+        # For Qwen/LLaVA, 336x336 usually takes ~256 tokens. 
+        # This allows you to fit ~16 frames in a 4k budget, covering more timeline.
+        target_resolution = (336, 336) 
         
-        # 6. 生成 Prompt
+        selected_frames = []
+        for i in valid_sel_idx:
+            img = frames[i]
+            # Resize guarantees token count matches your self.tokens_per_frame estimation
+            img_resized = img.resize(target_resolution, Image.BICUBIC)
+            selected_frames.append(img_resized)
+
+        selected_segments = [(events[i][0], events[i][1], i) for i in valid_sel_idx]
+        
+        # 6. 生成 Prompt (稍微加强一下 Prompt，让它明确输出)
+        # 建议在 prompt 最后加一句明确的指令
         prompt = self._build_graph_cot_prompt(
             question, options, 
             selected_segments, 
             Pi, valid_sel_idx
         )
-        
+        prompt += "\nImportant: End your response with 'The answer is X.'"
+
         # 7. 调用 VLM 推理
-        return self.model.generate(selected_frames, prompt, options)
+        # 🔥 修改这里：显式传入 max_new_tokens
+        # Video-MME 的推理通常需要较长篇幅，建议设为 1024 或 2048
+        return self.model.generate(
+            selected_frames, 
+            prompt, 
+            options, 
+            max_new_tokens=40960  # <--- 增加这个参数
+        )

@@ -58,23 +58,36 @@ def compute_similarity_matrix(global_feats, local_feats, tau=30, event_times=Non
     # Combined Similarity
     s_ij = 0.5 * (sim_local + sim_global)
     
-    # --- 3. Apply Constraints (Eq. 4) ---
-    # Filter 1: Similarity > delta
-    mask_sim = (s_ij > threshold).float()
+    # --- 3. Apply Constraints (IMPROVED) ---
     
-    # Filter 2: Temporal Distance > tau
+    # A. Temporal Mask (Keep existing)
     mask_time = torch.ones((N, N), device=device)
     if event_times is not None:
         centers = [(s+e)/2 for s,e in event_times]
-        # 向量化计算时间差
         t_tensor = torch.tensor(centers, device=device).unsqueeze(1)
         dist_matrix = torch.abs(t_tensor - t_tensor.t())
         mask_time = (dist_matrix > tau).float()
     
-    # Diagonal is always 0 (no self-loops for semantic edges)
+    # B. Adaptive Semantic Mask (Top-K + Soft Threshold)
+    # Instead of hard 0.65, we ensure every node connects to at least its Top-3 most similar nodes
+    # provided they are somewhat relevant (>0.5)
+    
+    # 1. Hard Threshold Mask
+    mask_threshold = (s_ij > threshold).float()
+    
+    # 2. Top-K Mask (Ensure connectivity)
+    k = min(3, N)
+    topk_val, topk_idx = torch.topk(s_ij * mask_time, k=k, dim=1)
+    mask_topk = torch.zeros_like(s_ij)
+    mask_topk.scatter_(1, topk_idx, 1.0)
+    
+    # Union of both strategies
+    mask_sim = torch.max(mask_threshold, mask_topk)
+    
+    # Diagonal is always 0
     mask_diag = 1 - torch.eye(N, device=device)
     
-    # Final Semantic Adjacency
+    # Final Adjacency
     adj_semantic = s_ij * mask_sim * mask_time * mask_diag
     
     return adj_semantic

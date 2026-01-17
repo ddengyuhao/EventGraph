@@ -1,8 +1,9 @@
-# /root/ICML2026/event_graph/run_inference.py
+# /root/icml2026/event_graph/run_inference.py
 import argparse
 import os
 import json
 import torch
+import re
 from tqdm import tqdm
 from my_dataset import DATASET_REGISTRY
 from methods import METHOD_REGISTRY
@@ -15,36 +16,50 @@ def parse_args():
     parser.add_argument("--data_root", type=str, default="/root/icml2026/dataset")
     parser.add_argument("--token_budget", type=int, default=2048)
     parser.add_argument("--output_dir", type=str, default="./result")
-    
-    # Efficient Parallelism Args
-    parser.add_argument("--num_chunks", type=int, default=1, help="Total GPU count")
-    parser.add_argument("--chunk_idx", type=int, default=0, help="Current GPU ID")
-    
-    # Testing Subset Args
-    parser.add_argument("--max_samples", type=int, default=None, help="Debug: Run only N samples")
-    
+    parser.add_argument("--num_chunks", type=int, default=1)
+    parser.add_argument("--chunk_idx", type=int, default=0)
+    parser.add_argument("--max_samples", type=int, default=None)
     return parser.parse_args()
+
+def extract_answer_from_text(text, options=None):
+    """ Robust Answer Extraction """
+    if not text: return "C"
+    text = text.strip()
+    
+    # 1. Match "The answer is X"
+    match = re.search(r'(?:answer|option)\s*(?:is|:)\s*[\(]?([A-D])[\)]?', text, re.IGNORECASE)
+    if match: return match.group(1).upper()
+    
+    # 2. Match end of text " D." or "(D)"
+    match = re.search(r'(?:^|\s)[\(]?([A-D])[\)]?[\.\s]*$', text)
+    if match: return match.group(1).upper()
+
+    # 3. Match start of text "D. The..." (Common in Qwen)
+    match = re.search(r'^[\(]?([A-D])[\)]?[\.\s]', text)
+    if match: return match.group(1).upper()
+
+    return "C"
 
 def main():
     args = parse_args()
     
-    # 1. Device Setup for A100s
-    # If running via launch script, CUDA_VISIBLE_DEVICES will handle this, 
-    # but explicit device map is safer.
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"🚀 Process {args.chunk_idx}/{args.num_chunks} starting on {device}")
 
-    # 2. Load Dataset
+    # 1. Load Dataset
     print(f"📂 Loading Dataset: {args.dataset}")
-    dataset_cls = DATASET_REGISTRY[args.dataset]
-    dataset = dataset_cls(root_dir=args.data_root)
-    
-    # Apply Subset (Max Samples) BEFORE Chunking
+    try:
+        dataset_cls = DATASET_REGISTRY[args.dataset]
+        dataset = dataset_cls(root_dir=args.data_root)
+    except KeyError:
+        print(f"❌ Error: Dataset '{args.dataset}' not found in registry.")
+        return
+
+    # 2. Subset & Chunking
     if args.max_samples is not None:
         dataset.samples = dataset.samples[:args.max_samples]
         print(f"⚠️ DEBUG MODE: Truncated to first {args.max_samples} samples.")
 
-    # Apply Chunking (Split work among 4 GPUs)
     total_samples = len(dataset)
     chunk_size = (total_samples + args.num_chunks - 1) // args.num_chunks
     start_idx = args.chunk_idx * chunk_size
@@ -57,68 +72,81 @@ def main():
         print("✅ Chunk is empty, exiting.")
         return
 
-    # 3. Load Model (Lazy load inside main to avoid multi-process fork issues)
-    # Note: Import Wrapper here
+    # 3. Load Model
+    print(f"🛠️ Loading Backbone: {args.backbone}")
     if args.backbone == "Video-LLaVA-7B":
         from models.video_llava_7b import VideoLLaVAWrapper
         model = VideoLLaVAWrapper()
-    elif "34B" in args.backbone:
-        from models.llava_next_34b import LLaVANext34BWrapper
-        model = LLaVANext34BWrapper()
-    
-    # --- 新增 Qwen 支持 ---
     elif args.backbone == "Qwen2.5-VL-7B":
-        from models.qwen2_5_vl import Qwen2_5_VLWrapper
-        model = Qwen2_5_VLWrapper() # 默认加载 7B-Instruct
-    # --------------------
+        try:
+            from models.qwen2_5_vl import Qwen2_5_VLWrapper
+            model = Qwen2_5_VLWrapper()
+        except ImportError as e:
+            print(f"❌ Failed to import Qwen Wrapper: {e}")
+            return
+    else:
+        print(f"❌ Unknown backbone: {args.backbone}")
+        return
 
     # 4. Initialize Method
     method_cls = METHOD_REGISTRY[args.method]
     processor = method_cls(args, model)
 
-    # 5. Inference Loop
+    # 5. Inference
     results = []
     os.makedirs(args.output_dir, exist_ok=True)
     
-    # [修改点] 改为按索引遍历，这样我们可以捕获 dataset[i] 抛出的异常
-    print(f"🚀 Start processing {len(dataset)} samples...")
+    print(f"🚀 Start processing...")
     
+    # 这里的 tqdm 迭代的是 dataset，没有 i 这个变量
     for sample in tqdm(dataset, desc=f"GPU {args.chunk_idx}"):
         try:
-            # --- 新增：空路径检查 ---
-            if sample['video_path'] is None:
-                print(f"⚠️ Skipping ID {sample['id']} due to missing video.")
+            # 检查视频是否存在
+            if sample.get('video_path') is None:
+                print(f"⚠️ Skipping ID {sample['id']} (Video missing)")
                 results.append({
                     "id": sample['id'],
-                    "pred": "C",  # 视频没下载下来，默认盲猜一个 C，保证评测脚本能跑通
+                    "pred": "C",
                     "gt": sample.get('answer', ''),
-                    "q": sample['question'],
-                    "error": "Video download failed"
+                    "q": sample.get('question', ''),
+                    "error": "Video not found"
                 })
                 continue
-            # -----------------------
 
-            # 正常的推理逻辑
-            pred = processor.process_and_inference(
+            # 推理
+            pred_raw = processor.process_and_inference(
                 sample['video_path'],
                 sample['question'],
                 sample.get('options', [])
             )
             
+            # 清洗答案
+            pred_cleaned = extract_answer_from_text(pred_raw)
+            
             results.append({
                 "id": sample['id'],
-                "pred": pred,
+                "pred": pred_cleaned,
+                "pred_raw": pred_raw,
                 "gt": sample.get('answer', ''),
-                "q": sample['question']
+                "q": sample.get('question', '')
             })
             
-            # Incremental save
+            # Save intermediate
             if len(results) % 5 == 0:
                 temp_path = os.path.join(args.output_dir, f"temp_{args.dataset}_{args.chunk_idx}.json")
                 with open(temp_path, 'w') as f: json.dump(results, f)
 
         except Exception as e:
-            print(f"❌ [Inference Error] {sample.get('id', i)}: {e}")
+            # 🔥 修复：使用 sample['id'] 而不是 i
+            err_id = sample.get('id', 'unknown_id')
+            print(f"❌ [Inference Error] ID: {err_id} | Error: {e}")
+            # 记录错误以便后续分析
+            results.append({
+                "id": err_id,
+                "error": str(e),
+                "pred": "C",
+                "gt": sample.get('answer', '')
+            })
 
     # Final Save
     final_path = os.path.join(args.output_dir, f"{args.dataset}_{args.method}_chunk{args.chunk_idx}.json")
