@@ -17,7 +17,6 @@ class CELFSelector:
         self.N = len(costs)
         
     def objective_function(self, current_S_indices):
-        """ 公式 (8) """
         if not current_S_indices:
             return 0.0
         
@@ -35,7 +34,6 @@ class CELFSelector:
         return f_rel + self.lambda_param * f_reach
 
     def select(self, budget):
-        """ CELF 算法主逻辑 """
         S = []
         current_cost = 0
         current_obj = 0.0

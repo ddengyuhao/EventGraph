@@ -4,7 +4,6 @@ import torch.nn.functional as F
 
 def compute_similarity_matrix(global_feats, local_feats, tau=30, event_times=None, threshold=0.65):
     """
-    严格复现论文公式 (3) 和 (4)
     Args:
         global_feats: (N, D) [CLS] tokens
         local_feats: (N, L, D) Patch tokens, L is number of patches
@@ -28,15 +27,13 @@ def compute_similarity_matrix(global_feats, local_feats, tau=30, event_times=Non
     sim_local = torch.zeros((N, N), device=device)
     local_feats = F.normalize(local_feats, p=2, dim=-1) # Normalize first
     
-    # 分块计算 (防止 OOM)
-    chunk_size = 10  # 每次算 10 个 Event 对所有 Events 的相似度
+    chunk_size = 10 
     for i in range(0, N, chunk_size):
         end_i = min(i + chunk_size, N)
         # Query chunk: (B, L, D)
         q_chunk = local_feats[i:end_i] 
         
         # (B, L, D) @ (N, L, D).permute -> (B, N, L, L)
-        # 注意: torch.einsum 此时可能显存也大，用 matmul 拆解
         # Let's verify each pair (u, v)
         # Optimized: calculate max over last dim
         for j in range(N):
@@ -94,8 +91,11 @@ def compute_similarity_matrix(global_feats, local_feats, tau=30, event_times=Non
 
 def compute_pagerank_matrix(adj_semantic, alpha=0.15):
     """
-    论文公式 (6): Reachability Matrix
-    adj: Directed Weighted Graph (includes Temporal + Semantic)
+    Implementation of Eq. (6): Reachability Matrix via PageRank.
+    
+    Args:
+        adj_semantic: Directed Weighted Graph (includes Temporal + Semantic edges).
+        alpha: Damping factor (default: 0.15).
     """
     N = adj_semantic.shape[0]
     device = adj_semantic.device
