@@ -1,4 +1,3 @@
-# /root/hhq/main_code/utils/graph_builder.py
 import torch
 import torch.nn.functional as F
 

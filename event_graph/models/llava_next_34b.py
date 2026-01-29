@@ -6,7 +6,7 @@ import re
 
 
 class LLaVANext34BWrapper:
-    def __init__(self, model_path="/root/hhq/models/LLaVA-NeXT-Video-34B-hf"):
+    def __init__(self, model_path="/llava-hf/LLaVA-NeXT-Video-34B-hf"):
         """        
         Args:
             model_path

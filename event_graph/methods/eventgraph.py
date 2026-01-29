@@ -1,5 +1,3 @@
-# event_graph/methods/eventgraph.py
-
 import os
 import torch
 import numpy as np
@@ -10,81 +8,57 @@ from .base_method import BaseMethod
 from .graph_builder import compute_similarity_matrix, compute_pagerank_matrix
 from .celf_solver import CELFSelector
 
-# Optional Dependencies
-try:
-    from .transnet_detector import TransNetV2Detector
-except ImportError:
-    TransNetV2Detector = None
-    print("⚠️ [EventGraph] TransNetV2Detector not found. Shot detection will use fallback.")
-
 try:
     from decord import VideoReader, cpu
 except ImportError:
     VideoReader = None
-    print("⚠️ [EventGraph] decord not installed. Video reading might fail.")
 
 class EventGraphLMM(BaseMethod):
-    """
-    EventGraph-LMM: A method for long video understanding via Event Graph construction 
-    and CELF-based keyframe selection.
-    """
     def __init__(self, args, model):
         super().__init__(args, model)
         
-        # Hyperparameters
+        # Args
         self.tau = getattr(args, 'tau', 30.0)
         self.delta = getattr(args, 'delta', 0.65)
         self.alpha = getattr(args, 'alpha', 0.15)
-        self.lambda_param = getattr(args, 'lambda_param', 1.0)
-        self.token_budget = args.token_budget
+        self.token_budget = getattr(args, 'token_budget', 8192)
         
-        # Token estimation configuration
-        backbone_name = getattr(args, 'backbone', '')
-        if 'Qwen' in backbone_name:
-            self.tokens_per_frame = 256 
-            self.target_size = (336, 336) 
-        elif '34B' in backbone_name:
-            self.tokens_per_frame = 576
-            self.target_size = None 
-        else:
+        # Config Tokens
+        bb = getattr(args, 'backbone', '')
+        if 'Qwen' in bb:
             self.tokens_per_frame = 256
+            self.target_size = (336, 336)
+        else:
+            self.tokens_per_frame = 576 # Default for LLaVA-Next etc.
             self.target_size = None
-            
+
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
-        # 1. Load CLIP Model
-        self._load_clip_model(args)
+        # 1. Load CLIP
+        self._load_clip(args)
         
-        # 2. Initialize Shot Detector
-        if TransNetV2Detector is not None:
-            print("🚀 [EventGraph] Initializing TransNet V2 Detector on GPU...")
-            try:
-                self.shot_detector = TransNetV2Detector(device='cuda') 
-            except Exception as e:
-                print(f"❌ [EventGraph] TransNet Init Failed: {e}. Using fallback strategy.")
-                self.shot_detector = None
-        else:
-            self.shot_detector = None
-
-    def _load_clip_model(self, args):
-        """Loads CLIP model from local path or HuggingFace hub."""
-        # Allow passing clip path via args, else fallback to default local or online
-        default_local = "/root/hhq/models/clip-vit-large-patch14" # Consider moving this to a config file
-        model_name_or_path = getattr(args, 'clip_path', default_local)
-        
-        if not os.path.exists(model_name_or_path):
-            model_name_or_path = "openai/clip-vit-large-patch14"
-
+        # 2. Load Detector (Optional)
+        self.shot_detector = None
         try:
-            self.clip_processor = CLIPProcessor.from_pretrained(model_name_or_path)
-            self.clip_model = CLIPModel.from_pretrained(model_name_or_path).to(self.device)
-            self.clip_model.eval()
+            from .transnet_detector import TransNetV2Detector
+            # Allow clean fallback if GPU is busy or incompatible
+            self.shot_detector = TransNetV2Detector(device='cuda' if torch.cuda.is_available() else 'cpu')
+            print(f"✅ TransNetV2 loaded on {self.shot_detector.device}")
+        except ImportError:
+            print("⚠️ TransNetV2 not found. Using fallback windows.")
         except Exception as e:
-            print(f"⚠️ [EventGraph] Failed to load CLIP from {model_name_or_path}: {e}")
-            print("   -> Fallback to openai/clip-vit-large-patch14")
+            print(f"⚠️ TransNetV2 init failed: {e}. Using fallback.")
+
+    def _load_clip(self, args):
+        path = getattr(args, 'clip_path', None) or "openai/clip-vit-large-patch14"
+        print(f"📥 Loading CLIP from: {path}")
+        try:
+            self.clip_processor = CLIPProcessor.from_pretrained(path)
+            self.clip_model = CLIPModel.from_pretrained(path).to(self.device).eval()
+        except Exception as e:
+            print(f"❌ Failed to load CLIP: {e}. Trying default OpenAI.")
             self.clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
-            self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14").to(self.device)
-            self.clip_model.eval()
+            self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14").to(self.device).eval()
 
     def _detect_shot_boundaries(self, video_path):
         """Detects shot boundaries using TransNetV2 or fallback."""

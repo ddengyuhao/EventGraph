@@ -1,4 +1,3 @@
-# /root/hhq/main_code/datasets/base_dataset.py
 import os
 import json
 from torch.utils.data import Dataset

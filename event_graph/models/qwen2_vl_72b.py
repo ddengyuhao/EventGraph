@@ -4,7 +4,7 @@ from qwen_vl_utils import process_vision_info
 from PIL import Image
 
 class Qwen2_VL_72B_Wrapper:
-    def __init__(self, model_path="/root/hhq/models/Qwen2.5-VL-72B-Instruct"):
+    def __init__(self, model_path="Qwen/Qwen2.5-VL-72B-Instruct"):
         """
         72B 
         Args:
