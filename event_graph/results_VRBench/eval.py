@@ -8,6 +8,8 @@ import re
 RESULT_DIR = "./results_VRBench"  
 # 匹配文件名的模式
 FILE_PATTERN = "VRBench_EventGraph-LMM_chunk*.json"
+# FILE_PATTERN = "VRBench_No-Compression_chunk*.json"
+
 
 def clean_answer(text):
     """

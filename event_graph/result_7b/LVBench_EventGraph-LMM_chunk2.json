@@ -1,0 +1,152 @@
+[
+    {
+        "id": "2sriHX3PbXw_50",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "2sriHX3PbXw_51",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_52",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_53",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "2sriHX3PbXw_54",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "2sriHX3PbXw_55",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "2sriHX3PbXw_56",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_57",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "2sriHX3PbXw_58",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "2sriHX3PbXw_59",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_60",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_61",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "2sriHX3PbXw_62",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "2sriHX3PbXw_63",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "TiQBTesZUJQ_64",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "TiQBTesZUJQ_65",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "TiQBTesZUJQ_66",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "TiQBTesZUJQ_67",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "TiQBTesZUJQ_68",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "TiQBTesZUJQ_69",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "TiQBTesZUJQ_70",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "TiQBTesZUJQ_71",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "TiQBTesZUJQ_72",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "TiQBTesZUJQ_73",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "TiQBTesZUJQ_74",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    }
+]

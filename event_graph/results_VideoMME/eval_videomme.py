@@ -7,7 +7,9 @@ import re
 # 你的结果文件夹路径
 RESULT_DIR = "./results_VideoMME"  
 # 匹配文件名的模式
-FILE_PATTERN = "VideoMME_EventGraph-LMM_chunk*.json"
+FILE_PATTERN = "VideoMME_No-Compression_chunk*.json"
+# FILE_PATTERN = "VideoMME_EventGraph-LMM_chunk*.json"
+
 
 def clean_answer(text):
     """

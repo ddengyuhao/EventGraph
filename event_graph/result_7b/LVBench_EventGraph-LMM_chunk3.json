@@ -1,0 +1,152 @@
+[
+    {
+        "id": "TiQBTesZUJQ_75",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "TiQBTesZUJQ_76",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "TiQBTesZUJQ_77",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "xi6r3hZe5Tg_78",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "xi6r3hZe5Tg_79",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "xi6r3hZe5Tg_80",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "xi6r3hZe5Tg_81",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "xi6r3hZe5Tg_82",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "xi6r3hZe5Tg_83",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "xi6r3hZe5Tg_84",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "xi6r3hZe5Tg_85",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "xi6r3hZe5Tg_86",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "xi6r3hZe5Tg_87",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "9-gOCOu_KGU_88",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_89",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "D"
+    },
+    {
+        "id": "9-gOCOu_KGU_90",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_91",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "9-gOCOu_KGU_92",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_93",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "9-gOCOu_KGU_94",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    },
+    {
+        "id": "9-gOCOu_KGU_95",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_96",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "B"
+    },
+    {
+        "id": "9-gOCOu_KGU_97",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_98",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "C"
+    },
+    {
+        "id": "9-gOCOu_KGU_99",
+        "error": "expected Tensor as element 0 in argument 0, but got BaseModelOutputWithPooling",
+        "pred": "C",
+        "gt": "A"
+    }
+]

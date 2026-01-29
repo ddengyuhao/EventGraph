@@ -1,15 +1,15 @@
-# /root/ICML2026/event_graph/my_dataset.py
-
-from .base_dataset import BaseDataset
 from .cinepile import CinePileDataset
-# 1. 导入新类
-from .vrbench import VRBenchDataset 
+from .vrbench import VRBenchDataset
 from .videomme import VideoMMEDataset
-
+# 1. 导入新类
+from .longvideobench import LongVideoBenchDataset
+from .lvbench import LVBenchDataset
 
 DATASET_REGISTRY = {
-    "VideoMME": VideoMMEDataset,
     "CinePile": CinePileDataset,
+    "VRBench": VRBenchDataset,
+    "VideoMME": VideoMMEDataset,
     # 2. 注册名字
-    "VRBench": VRBenchDataset
+    "LongVideoBench": LongVideoBenchDataset,
+    "LVBench": LVBenchDataset
 }

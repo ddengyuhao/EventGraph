@@ -116,7 +116,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_root", type=str, default="/root/icml2026/dataset/CinePile")
     parser.add_argument("--output_file", type=str, default="result_top50_smart.json")
-    parser.add_argument("--token_budget", type=int, default=2048)
+    parser.add_argument("--token_budget", type=int, default=8192)
     # ✨ 新增：支持命令行指定 backbone
     parser.add_argument("--backbone", type=str, default="Qwen2.5-VL-7B", 
                         choices=["Video-LLaVA-7B", "Qwen2.5-VL-7B", "LLaVA-NeXT-Video-34B"])

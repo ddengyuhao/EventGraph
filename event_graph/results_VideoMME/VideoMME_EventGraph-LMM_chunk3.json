@@ -1,0 +1,149 @@
+[
+    {
+        "id": "vmme_0k2ey_okQ4E_2259",
+        "pred": "B",
+        "pred_raw": "B",
+        "gt": "B",
+        "q": "What is the primary focus of the video featuring Ronaldo?"
+    },
+    {
+        "id": "vmme_0k2ey_okQ4E_2260",
+        "pred": "D",
+        "pred_raw": "D.",
+        "gt": "D",
+        "q": "Why is the main character's 25m straight-line sprint ability considered inferior to that of a professional sprinter in the video?"
+    },
+    {
+        "id": "vmme_0k2ey_okQ4E_2261",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "A",
+        "q": "What underlies the main character's ability to make rapid decisions on the field, according to the video?"
+    },
+    {
+        "id": "vmme_0iED5BojTMI_2337",
+        "pred": "A",
+        "pred_raw": "A",
+        "gt": "D",
+        "q": "How many games are hosted in this video?"
+    },
+    {
+        "id": "vmme_0iED5BojTMI_2338",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "B",
+        "q": "Who wins the women's A final?"
+    },
+    {
+        "id": "vmme_0iED5BojTMI_2339",
+        "pred": "C",
+        "pred_raw": "C",
+        "gt": "C",
+        "q": "What is the main focus of the video?"
+    },
+    {
+        "id": "vmme_0bwyCF0HteE_2373",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "A",
+        "q": "How many magic shows are included in this video?"
+    },
+    {
+        "id": "vmme_0bwyCF0HteE_2374",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "D",
+        "q": "What is special about the second magic?"
+    },
+    {
+        "id": "vmme_0bwyCF0HteE_2375",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "B",
+        "q": "What are the magic tricks about?"
+    },
+    {
+        "id": "vmme_1evyOuQz-jM_2532",
+        "pred": "C",
+        "pred_raw": "C",
+        "gt": "B",
+        "q": "In what sequence are the following jewelry pieces arranged to be displayed in this video?\n(a) Engagement ring.\n(b) Cartier bracelets.\n(c) Tabayer earrings.\n(d) Missoma hoops."
+    },
+    {
+        "id": "vmme_1evyOuQz-jM_2533",
+        "pred": "B",
+        "pred_raw": "B",
+        "gt": "A",
+        "q": "What makes the dual diamond ring from Leon Diamond unique or special?"
+    },
+    {
+        "id": "vmme_1evyOuQz-jM_2534",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "C",
+        "q": "Which jewellery piece is being introduced when she takes off her coat?"
+    },
+    {
+        "id": "vmme_0eJvnKwGThw_2538",
+        "pred": "C",
+        "pred_raw": "C",
+        "gt": "C",
+        "q": "What is this video documenting?"
+    },
+    {
+        "id": "vmme_0eJvnKwGThw_2539",
+        "pred": "A",
+        "pred_raw": "A",
+        "gt": "A",
+        "q": "Where might this walkout take place?"
+    },
+    {
+        "id": "vmme_0eJvnKwGThw_2540",
+        "pred": "C",
+        "pred_raw": "C",
+        "gt": "B",
+        "q": "In the last model gathering, at what time does the green model in the lower left corner of the square appear in the video?"
+    },
+    {
+        "id": "vmme_0kRsiSdDFYg_2649",
+        "pred": "A",
+        "pred_raw": "A.",
+        "gt": "C",
+        "q": "How many goals did the player interviewed by the male host at the beginning of the video wearing a top with the word QARAR score in his first match?"
+    },
+    {
+        "id": "vmme_0kRsiSdDFYg_2650",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "A",
+        "q": "What is the score of the first game of the semi-finals in the video?"
+    },
+    {
+        "id": "vmme_0kRsiSdDFYg_2651",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "D",
+        "q": "In the video after all the matches are over why is everyone cheering and celebrating around the guy wearing a shirt with the word Qatar on it?"
+    },
+    {
+        "id": "vmme_1O1TfTrEnss_2682",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "B",
+        "q": "As can be seen in the video, which of the following is excluded from the power value on the red or blue small card?"
+    },
+    {
+        "id": "vmme_1O1TfTrEnss_2683",
+        "pred": "C",
+        "pred_raw": "C",
+        "gt": "C",
+        "q": "What is special about the board on the lower right corner of the video that keeps track of the locations controlled by each of the two sides?"
+    },
+    {
+        "id": "vmme_1O1TfTrEnss_2684",
+        "pred": "D",
+        "pred_raw": "D",
+        "gt": "A",
+        "q": "As can be seen in the video, which of the items is not placed on the table?"
+    }
+]

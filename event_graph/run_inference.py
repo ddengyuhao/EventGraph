@@ -10,15 +10,15 @@ from methods import METHOD_REGISTRY
 
 def parse_args():
     parser = argparse.ArgumentParser(description="EventGraph-LLM Experiments")
-    parser.add_argument("--dataset", type=str, default="CinePile", choices=["VideoMME", "CinePile", "VRBench"])
+    parser.add_argument("--dataset", type=str, default="CinePile", choices=["VideoMME", "CinePile", "VRBench", "LVBench"])
     parser.add_argument("--method", type=str, default="EventGraph-LMM")
     parser.add_argument("--backbone", type=str, default="Video-LLaVA-7B")
     parser.add_argument("--data_root", type=str, default="/root/icml2026/dataset")
-    parser.add_argument("--token_budget", type=int, default=2048)
+    parser.add_argument("--token_budget", type=int, default=8192)
     parser.add_argument("--output_dir", type=str, default="./result")
     parser.add_argument("--num_chunks", type=int, default=1)
     parser.add_argument("--chunk_idx", type=int, default=0)
-    parser.add_argument("--max_samples", type=int, default=None)
+    parser.add_argument("--max_samples", type=int, default=100)
     return parser.parse_args()
 
 def extract_answer_from_text(text, options=None):
@@ -84,6 +84,12 @@ def main():
         except ImportError as e:
             print(f"❌ Failed to import Qwen Wrapper: {e}")
             return
+    # 🔥 新增 72B 支持
+    elif args.backbone == "Qwen2-VL-72B":
+        from models.qwen2_vl_72b import Qwen2_VL_72B_Wrapper
+        # 这里请填入你 72B 模型的真实绝对路径
+        model = Qwen2_VL_72B_Wrapper(model_path="/root/hhq/models/Qwen/Qwen2___5-VL-72B-Instruct")
+
     else:
         print(f"❌ Unknown backbone: {args.backbone}")
         return

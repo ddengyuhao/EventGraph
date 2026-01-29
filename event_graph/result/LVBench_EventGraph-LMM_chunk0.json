@@ -1,0 +1,9 @@
+[
+    {
+        "id": "q01CUy_gwdU_0",
+        "pred": "C",
+        "pred_raw": "The image at the beginning of the sequence appears to be a painting or illustration with a predominantly blue color scheme. The scene includes a biplane, which is depicted in a light blue and white color, and the background features a sky that is also blue. There are no significant elements in the image that suggest it is primarily white, brown, or grey.\n\nTherefore, the correct answer is:\n(B) Blue",
+        "gt": "D",
+        "q": "What color is the scene at the begining?\n(A) White\n(B) Blue\n(C) Brown\n(D) Grey"
+    }
+]
