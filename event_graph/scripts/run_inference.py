@@ -1,11 +1,9 @@
-import argparse
+import sys
 import os
-import json
-import torch
-import re
-from tqdm import tqdm
-from event_graph.data import DATASET_REGISTRY
-from event_graph.methods import METHOD_REGISTRY
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from eventgraph.data import DATASET_REGISTRY
+from eventgraph.methods import METHOD_REGISTRY
 
 def parse_args():
     parser = argparse.ArgumentParser(description="EventGraph-LLM Inference")
