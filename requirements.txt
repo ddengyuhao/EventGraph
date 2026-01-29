@@ -1,0 +1,25 @@
+# Deep Learning Core
+torch>=2.0.0
+torchvision
+numpy
+
+# Large Model Ecosystem (HuggingFace, Qwen, LLaVA)
+transformers>=4.37.0
+accelerate>=0.26.0
+datasets
+qwen-vl-utils
+
+# Video Processing & Loading
+decord>=0.6.0
+opencv-python
+pillow
+scenedetect
+
+# Specialized Shot Detection
+transnetv2-pytorch
+
+# Utilities & CLIP Dependencies
+tqdm
+ftfy
+regex
+yt-dlp

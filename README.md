@@ -36,8 +36,8 @@ By modeling videos as directed event graphs that capture both temporal flow and 
     * Extracts global ([CLS]) and local patch features using **CLIP**.
     * Builds a graph $G=(V, E)$ with **temporal edges** (sequential flow) and **semantic edges** (long-range similarity).
 2.  **Constrained Subgraph Selection**: 
-    * Solves the optimization problem: $\max_{S \subseteq V} \mathcal{F}_q(S) \text{ s.t. } |S| \leq k$.
-    * The objective function $\mathcal{F}_q(S) = F_{rel}(S) + \lambda F_{reach}(S)$ balances **Query Relevance** and **Reachable Information Gain**.
+    * Solves the submodular optimization problem.
+    * The objective function balances **Query Relevance** and **Reachable Information Gain**.
     * Uses the **CELF algorithm** for fast, near-optimal selection.
 3.  **Graph-Constrained Reasoning (Graph-CoT)**:
     * Guides the LMM to verify evidence and propagate logic strictly along the selected graph paths.
@@ -157,16 +157,9 @@ python scripts/run_inference.py \
 
 * `--method`: Selection strategy (Default: `EventGraph-LMM`).
 * `--backbone`: Model backbone (e.g., `Qwen2.5-VL-7B`, `Qwen2-VL-72B`).
-* 
-`--token_budget`: Maximum number of visual tokens allowed (default: 8192).
-
-
-* 
-`--tau`: Temporal distance threshold for graph construction (default: 30.0).
-
-
-* 
-`--delta`: Semantic similarity threshold (default: 0.65).
+* `--token_budget`: Maximum number of visual tokens allowed (default: 8192).
+* `--tau`: Temporal distance threshold for graph construction (default: 30.0).
+* `--delta`: Semantic similarity threshold (default: 0.65).
 
 
 
