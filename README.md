@@ -14,9 +14,9 @@
 
 ## 📖 Abstract
 
-[cite_start]Understanding long-form videos with Large Multimodal Models (LMMs) is challenging due to massive visual token counts and limited context budgets[cite: 46]. [cite_start]We propose **EventGraph-LMM**, a training-free framework that reformulates long-video compression as a **constrained subgraph selection problem** rather than simple token pruning[cite: 47].
+Understanding long-form videos with Large Multimodal Models (LMMs) is challenging due to massive visual token counts and limited context budgets. We propose **EventGraph-LMM**, a training-free framework that reformulates long-video compression as a **constrained subgraph selection problem** rather than simple token pruning.
 
-[cite_start]By modeling videos as directed event graphs that capture both temporal flow and long-range semantic dependencies, we formulate subgraph selection as a **monotone submodular maximization problem**[cite: 48]. [cite_start]This allows us to use the **CELF algorithm** to efficiently select the most informative frames with theoretical approximation guarantees[cite: 473]. [cite_start]Furthermore, we introduce a **Graph-Constrained Chain-of-Thought (Graph-CoT)** mechanism that guides the LMM's reasoning along verified visual dependencies, significantly reducing hallucinations[cite: 49].
+By modeling videos as directed event graphs that capture both temporal flow and long-range semantic dependencies, we formulate subgraph selection as a **monotone submodular maximization problem**. This allows us to use the **CELF algorithm** to efficiently select the most informative frames with theoretical approximation guarantees. Furthermore, we introduce a **Graph-Constrained Chain-of-Thought (Graph-CoT)** mechanism that guides the LMM's reasoning along verified visual dependencies, significantly reducing hallucinations.
 
 ---
 
@@ -27,38 +27,53 @@
 <div align="center">
   <img src="assets/framework.png" width="95%" alt="EventGraph Framework"/>
   <br>
-  <em>(Please save Figure 2 from the paper as assets/framework.png)</em>
 </div>
 
 ### Key Components
 
 1.  **Event Graph Construction**: 
-    * [cite_start]Decomposes video into events using **TransNetV2**[cite: 356].
-    * [cite_start]Extracts global ([CLS]) and local patch features using **CLIP**[cite: 358].
-    * [cite_start]Builds a graph $G=(V, E)$ with **temporal edges** (sequential flow) and **semantic edges** (long-range similarity)[cite: 360].
+    * Decomposes video into events using **TransNetV2**.
+    * Extracts global ([CLS]) and local patch features using **CLIP**.
+    * Builds a graph $G=(V, E)$ with **temporal edges** (sequential flow) and **semantic edges** (long-range similarity).
 2.  **Constrained Subgraph Selection**: 
-    * Solves the optimization problem: $\max_{S \subseteq V} \mathcal{F}_q(S) \text{ s.t. } |S| [cite_start]\leq k$[cite: 266].
-    * [cite_start]The objective function $\mathcal{F}_q(S) = F_{rel}(S) + \lambda F_{reach}(S)$ balances **Query Relevance** and **Reachable Information Gain**[cite: 460].
-    * [cite_start]Uses the **CELF algorithm** for fast, near-optimal selection[cite: 473].
+    * Solves the optimization problem: $\max_{S \subseteq V} \mathcal{F}_q(S) \text{ s.t. } |S| \leq k$.
+    * The objective function $\mathcal{F}_q(S) = F_{rel}(S) + \lambda F_{reach}(S)$ balances **Query Relevance** and **Reachable Information Gain**.
+    * Uses the **CELF algorithm** for fast, near-optimal selection.
 3.  **Graph-Constrained Reasoning (Graph-CoT)**:
-    * [cite_start]Guides the LMM to verify evidence and propagate logic strictly along the selected graph paths[cite: 482].
+    * Guides the LMM to verify evidence and propagate logic strictly along the selected graph paths.
 
 ---
 
 ## 📊 Performance
 
-We evaluate EventGraph-LMM on **VideoMME**, **VRBench**, and **CinePile**. [cite_start]Under a strict budget of **8,192 visual tokens**, our method significantly outperforms existing efficient inference baselines[cite: 582].
+We evaluate EventGraph-LMM on **VideoMME**, **VRBench**, and **CinePile**. Under a strict budget of **8,192 visual tokens**, our method significantly outperforms existing efficient inference baselines.
 
-| Method | LLM Backbone | VideoMME | VRBench | CinePile | Avg. |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **Full-Sequence (Upper Bound)** | Qwen2.5-VL-7B | 56.5 | 45.5 | 35.2 | 45.7 |
-| | | | | | |
-| FastV | Qwen2.5-VL-7B | 34.5 | 22.0 | 18.5 | 25.0 |
-| DyCoke | Qwen2.5-VL-7B | 52.3 | 43.1 | 38.4 | 44.6 |
-| Q-Frame | Qwen2.5-VL-7B | 51.8 | 47.2 | 37.1 | 45.4 |
-| **EventGraph-LMM (Ours)** | **Qwen2.5-VL-7B** | **58.5** | **54.8** | **48.1** | **53.8** |
+| Method | Type | LLM Backbone | VideoMME | VRBench | CinePile | Avg. |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| *Proprietary LMMs* | | | | | | |
+| Gemini 1.5 Pro | API | - | 75.0 | 70.7 | 60.1 | 68.6 |
+| GPT-4o | API | - | 71.9 | 68.7 | 56.1 | 65.6 |
+| *Open-Source LMMs (Full-Sequence)* | | | | | | |
+| InternVL2.5-72B | Dense | Qwen2.5-72B | 72.1 | 53.5 | 54.6 | 60.1 |
+| Qwen2-VL-72B | Dense | Qwen2-72B | 71.2 | 59.1 | 54.2 | 61.5 |
+| Qwen2.5-VL-7B | Dense | Qwen2.5-7B | 65.1 | 56.5 | 52.6 | 58.1 |
+| LLaVA-NeXT-34B | Dense | Qwen1.5-34B | 70.6 | 48.5 | 41.5 | 53.5 |
+| *Efficient Strategies (Qwen2.5-VL-7B)* | | | | | | |
+| LLaVA-Phi | Architecture | Phi-2 | 34.5 | 22.0 | 18.5 | 25.0 |
+| FastV | Token Reduction | Qwen2.5-VL-7B | 52.3 | 43.1 | 38.4 | 44.6 |
+| DyCoke | Token Reduction | Qwen2.5-VL-7B | 51.8 | 47.2 | 37.1 | 45.4 |
+| Q-Frame | Keyframe Sampling | Qwen2.5-VL-7B | 53.5 | 48.5 | 40.7 | 47.6 |
+| MovieChat | Memory | Qwen2.5-VL-7B | 48.5 | 35.0 | 28.0 | 37.2 |
+| SGVC | Caption | Qwen2.5-VL-7B | 45.0 | 32.0 | 30.2 | 35.7 |
+| **Ours** | **Graph** | **Qwen2.5-VL-7B** | **58.5** | **54.8** | **48.1** | **53.8** |
+| *Efficient Strategies (Qwen2-VL-72B)* | | | | | | |
+| FastV | Token Reduction | Qwen2-VL-72B | 56.5 | 45.5 | 35.2 | 45.7 |
+| DyCoke | Token Reduction | Qwen2-VL-72B | 57.9 | 46.8 | 34.5 | 46.4 |
+| Q-Frame | Keyframe Sampling | Qwen2-VL-72B | 62.0 | 52.1 | 39.5 | 52.2 |
+| **Ours** | **Graph** | **Qwen2-VL-72B** | **66.2** | **58.5** | **51.3** | **58.7** |
 
-> [cite_start]*Results sourced from Table 1 in our paper[cite: 580].*
+
+> *Results sourced from Table 1 in our paper.*
 
 ---
 
@@ -97,14 +112,13 @@ Please organize your datasets as follows. You can configure the `DATA_ROOT` in `
 dataset/
 ├── VideoMME/
 │   ├── videos/       # Contains .mp4 files
-│   └── test.json     # Annotation file
+│   └── test.json     # Annotation file (Hardcoded in code)
 ├── CinePile/
 │   ├── yt_videos/    # Downloaded video files
-│   └── ...
+│   └── cookies.txt   # (Optional) YouTube auth for downloading restricted videos
 └── VRBench/
-    ├── videos/
-    └── VRBench.json
-
+    ├── videos/       # Contains video files
+    └── VRBench.json  # Annotation file
 ```
 
 ---
@@ -118,7 +132,6 @@ You can run inference using the provided shell script, which supports multi-GPU 
 To evaluate on **VideoMME** using **Qwen2.5-VL-7B**:
 
 ```bash
-# Default config: 8192 token budget, 4 GPUs
 bash scripts/run.sh
 
 ```
@@ -143,7 +156,7 @@ python scripts/run_inference.py \
 #### Key Arguments:
 
 * `--method`: Selection strategy (Default: `EventGraph-LMM`).
-* `--backbone`: Model backbone (e.g., `Qwen2.5-VL-7B`, `Qwen2-VL-72B`, `Video-LLaVA-7B`).
+* `--backbone`: Model backbone (e.g., `Qwen2.5-VL-7B`, `Qwen2-VL-72B`).
 * 
 `--token_budget`: Maximum number of visual tokens allowed (default: 8192).
 
